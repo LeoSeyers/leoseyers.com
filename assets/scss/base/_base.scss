@@ -1,0 +1,104 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button:focus {
+  outline: none;
+} 
+
+html {
+  // This defines what 1rem is
+  // Browser default is 16px
+  font-size: 62.5%; // 62.5% of default value, 10px (= 1 rem)
+
+  //    Mobile-first queries 
+
+  // 600px +
+  @include respond(tab) {
+    font-size: 75%
+  }
+
+  // 900px +
+  @include respond(tab-large) {
+    font-size: 80%
+  }
+
+  // 1200px +
+  @include respond(desktop) {
+    font-size: 90%
+  }
+
+  // 1800px +
+  @include respond(desktop-large) {
+    font-size: 110%
+  }
+
+  @include respond(desktop-xlarge) {
+    font-size: 130%
+  }
+
+
+}
+
+body {
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+}
+
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 1.5rem;
+
+  @include respond(phone-medium) {
+    padding: 2.2rem;
+  }
+
+  @include respond(phone-large) {
+    padding: 2.6rem;
+  }
+
+  @include respond(tab-large) {
+    padding: 4rem 0;
+    max-width: 90%;
+  }
+
+  @include respond(desktop) {
+    // max-width: 80rem;
+  }
+
+  &--tight {
+     @include respond(tab-large) {
+      
+       max-width: 80%;
+     }
+
+     @include respond(desktop) {
+      //  max-width: 70rem;
+     }
+  }
+}
+
+::selection {
+  background-color: #afafaf91;
+  color: rgb(43, 43, 43);
+}
+
+

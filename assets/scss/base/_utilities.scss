@@ -1,0 +1,21 @@
+.no-scroll { /* ...or body.dialogShowing */
+  overflow: hidden;
+} 
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.flx-jstfy-start {
+      justify-content: flex-start !important;
+}
+
+.pb-2 {
+  padding-bottom: 2rem;
+}
+
+.pb-6 {
+  padding-bottom: 6rem;
+}

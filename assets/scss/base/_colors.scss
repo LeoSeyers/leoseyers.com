@@ -1,0 +1,19 @@
+$colors: (black: #0a0a0a,
+  darkgray: #161616,
+  gray: #5a5a5a,
+  lightgray: #bfbfbf,
+  white: #fff,
+  yellow: #ffd352
+);
+
+
+@each $name,
+$hex in $colors {
+  .bg-#{$name} {
+    background-color: $hex;
+  }
+
+  .c-#{$name} {
+    color: $hex;
+  }
+}
