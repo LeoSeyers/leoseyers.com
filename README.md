@@ -1,6 +1,6 @@
-# fotoscope
+# leoseyers
 
-> Antoine Grenez Portfolio
+> Personal portfolio
 
 ## Build Setup
 
@@ -20,4 +20,3 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-# fotoscope
