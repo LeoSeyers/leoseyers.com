@@ -136,6 +136,23 @@
     head() {
       return {
         title: 'Leo Seyers',
+
+        meta: [
+        { name: 'description', hid: 'description', content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
+        // Open Graph
+        { name: 'og:title', content: 'Leo Seyers' },
+        { name: 'og:description', 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
+        { name: 'og:type', content: 'website' },
+        { name: 'og:url', content: 'https://leoseyers.com' },
+        { name: 'og:image', content: '~assets/images/reportage.jpg' },
+        // Twitter Card
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: 'Leo Seyers' },
+        { name: 'twitter:description', content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
+        { name: 'twitter:image', content: '~assets/images/reportage.jpg' },
+        { name: 'twitter:image:alt', content: 'Leo Seyers Photograph' }
+      ],
+
         script: [{
           src: 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js'
         }],
