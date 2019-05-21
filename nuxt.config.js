@@ -52,7 +52,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    // '@nuxtjs/style-resources'
   ],
 
   // styleResources: {
