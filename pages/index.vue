@@ -15,11 +15,26 @@
       <div class="wrapper wrapper--tight">
         <div class="neg-margin">
           <h4 class="c-gray fs-s ls-s">A — PROFESSIONAL PHOTOGRAPHY</h4>
+
           <div class="cmp-slider">
-            <div class="cmp-slider__cell"> </div>
-            <div class="cmp-button bg-yellow c-black ls-s">
-              <a href="">Explore Portfolio  →</a> <!-- nuxt link -->
+
+            <div class="carousel-pro" ref="flickity_pro">
+              <div class="carousel-cell">
+                <img src="~assets/images/reportage.jpg" alt="">
+              </div>
+              <div class="carousel-cell">
+                <img src="~assets/images/reportage.jpg" alt="">
+              </div>
+              <div class="carousel-cell">
+                <img src="~assets/images/reportage.jpg" alt="">
+              </div>
             </div>
+
+
+            <!-- <div class="cmp-slider__cell"> </div>
+            <div class="cmp-button bg-yellow c-black ls-s">
+              <a href="">Explore Portfolio →</a>
+            </div> -->
           </div>
         </div>
 
@@ -42,8 +57,8 @@
           <h4 class="c-darkgray fs-s pb-2 ls-s">B — CONTEMPORARY PHOTOGRAPHY</h4>
           <p class="c-black fs-l pb-4">I have a former artistic background, <br> mostly in Photography as a contemporary
             practice</p>
-          <a class="mb-6 link-underline ls-s" href="https://unlightenment.io" target="_blank"
-            rel="noopener noreferrer">Explore artworks  →</a>
+          <a class="mb-6 link-underline ls-s" style="margin-bottom: 30vh;" href="https://unlightenment.io" target="_blank"
+            rel="noopener noreferrer">Explore artworks →</a>
         </div>
       </div>
 
@@ -61,8 +76,7 @@
           <div style="position:relative">
             <h4 class="c-gray fs-s pb-2 ls-s">C — WEBSITES</h4>
             <p class="c-black fs-l pb-2">I've been crafting websites since 2018 as Studio Scale where I focus on elegant
-              and performant website
-              experiences</p>
+              and performant website experiences</p>
             <ul class="c-gray fs-m mb-6">
               <li>Strategy</li>
               <li>UX/UI</li>
@@ -85,7 +99,7 @@
 	c6.4-3.7,12.8-7.4,19.4-11.2c-1.3-1.7-2-2.8-2.8-3.9c-25-32.2-50-64.5-75-96.7c-5.9-7.6-5.8-8.3,2.4-13	C139.3,134.6,154.4,125.9,170.1,116.9z M215.5,286.3c-2,1.1-3.7,2.1-5.5,3.1c-13.1,7.5-26.3,15-39.3,22.7c-3.9,2.3-6.4,2-9.3-1.8
 	c-10.4-13.7-21-27.1-31.5-40.6c-1.4-1.8-2.8-3.5-4.3-5.4c-8.8,5.1-17,9.9-25.3,14.7c10.7,17.2,29.8,40.9,41.5,51.2	c8.3,7.4,17.5,13.2,29,14.3C198.4,347,230.7,322.8,215.5,286.3z" />
                 </svg>
-                <p class="fs-s link-underline ls-s" style="display:block">Visit Studio  →</p>
+                <p class="fs-s link-underline ls-s" style="display:block">Visit Studio →</p>
               </a>
             </div>
           </div>
@@ -101,22 +115,50 @@
       <div class="wrapper">
         <h4 class="c-lightgray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
         <ul class="c-white fs-m pb-4">
-          <li><a href="https://leoseyers.com/pro" target="_blank" rel="noopener noreferrer">Commercial showcase</a></li> <!-- nuxt link -->
+          <li><a href="https://leoseyers.com/pro" target="_blank" rel="noopener noreferrer">Commercial showcase</a></li>
+          <!-- nuxt link -->
           <li><a href="https://unlightenment.io" target="_blank" rel="noopener noreferrer">Art-based portfolio</a></li>
           <li><a href="https://studio-scale.com" target="_blank" rel="noopener noreferrer">Digital web studio</a></li>
 
         </ul>
-        <p class="c-gray fs-s">Copyright 2019. All rights reserved 
-          <span><a href="https://github.com/LeoSeyers/leoseyers.com" target="_blank" rel="noopener noreferrer">V1.0</a></span></p>
+        <p class="c-gray fs-s">Copyright 2019. All rights reserved
+          <span><a href="https://github.com/LeoSeyers/leoseyers.com" target="_blank" rel="noopener noreferrer" npm
+              install vue-flickity --save>V1.0</a></span></p>
       </div>
 
     </footer>
-
   </main>
-
-
-
 </template>
+
+<script>
+  export default {
+
+    head() {
+      return {
+        script: [{
+          src: 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js'
+        }],
+        link: [{
+          rel: 'stylesheet',
+          href: 'https://unpkg.com/flickity@2/dist/flickity.min.css'
+        }]
+      }
+    },
+
+    mounted() {
+
+
+      var flkty = new Flickity(this.$refs.flickity_pro, {
+        prevNextButtons: false,
+        pageDots: false,
+        wrapAround: true
+      });
+
+    }
+
+  }
+
+</script>
 
 
 <style lang="scss">
@@ -132,7 +174,7 @@
   }
 
   h3 {
-    margin-bottom: 30vh;
+    margin-bottom: 35vh;
   }
 
   p {
@@ -165,14 +207,13 @@
     margin-top: -20vh;
 
     @include respond(desktop) {
-      margin-top: -25vh;
+      margin-top: -35vh;
     }
   }
 
   .cmp-slider {
     position: relative;
     width: 100%;
-    background-color: #f7f7f7;
     margin-top: 5vh;
     margin-bottom: 5vh;
 
@@ -182,17 +223,11 @@
       @include aspect-ratio(21/9);
     }
 
-    &__cell {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-
-      background-image: url('~assets/images/reportage.jpg');
-      background-size: cover;
-      background-position: center;
+    @include respond(tab-large) {
+      margin-left: -12.5%;
+      width: 125%;
     }
+
   }
 
   .cmp-carousel {
@@ -223,14 +258,12 @@
     bottom: -2rem;
     right: 50%;
     transform: translateX(50%);
-
     transition: all .25s ease;
 
     a {
       display: block;
       padding: 1rem 1.5rem;
     }
-
 
     &:hover {
       background-color: #fff;
@@ -247,7 +280,7 @@
     width: 10rem;
     text-align: center;
     margin: 0 auto 4rem;
-    
+
 
     @include respond(tab-large) {
       margin: 0;
@@ -269,7 +302,37 @@
         color: #252525
       }
     }
+  }
 
+  .carousel-pro {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    .carousel-cell {
+      width: 66%;
+      height: 100%;
+
+      &.is-selected img {
+        transform: scale(1);
+      }
+
+      img {
+        display: block;
+        width: 95%;
+        height: auto;
+        margin: auto;
+        transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+        transform: scale(0.75);
+      }
+    }
+
+    .flickity-viewport.is-pointer-down {
+      .is-selected img {
+        transform: scale(0.9);
+      }
+    }
 
   }
 
