@@ -55,11 +55,11 @@ export default {
     '@nuxtjs/style-resources'
   ],
 
-  styleResources: {
-    scss: [
-      'assets/scss/main.scss'
-    ]
-  },
+  // styleResources: {
+  //   scss: [
+  //     'assets/scss/main.scss'
+  //   ]
+  // },
 
   /*
   ** Axios module configuration

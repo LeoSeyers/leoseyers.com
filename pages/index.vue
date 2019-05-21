@@ -16,37 +16,41 @@
         <div class="neg-margin">
           <h4 class="c-gray fs-s ls-s">A — PROFESSIONAL PHOTOGRAPHY</h4>
 
-          <div class="cmp-slider">
+          <div class="cmp-slider wrapper--fullwidth">
 
             <div class="carousel-pro" ref="flickity_pro">
               <div class="carousel-cell">
-                <img src="~assets/images/reportage.jpg" alt="">
+                <img src="~assets/images/packshot.jpg" alt="">
               </div>
               <div class="carousel-cell">
                 <img src="~assets/images/reportage.jpg" alt="">
               </div>
               <div class="carousel-cell">
-                <img src="~assets/images/reportage.jpg" alt="">
+                <img src="~assets/images/real-estate.jpg" alt="">
               </div>
             </div>
 
-
-            <!-- <div class="cmp-slider__cell"> </div>
-            <div class="cmp-button bg-yellow c-black ls-s">
-              <a href="">Explore Portfolio →</a>
-            </div> -->
           </div>
         </div>
 
-        <p class="c-lightgray fs-l pb-2">I have a taste for natural, clean and intelligible imagery that arouses
-          enthusiasm</p>
-        <!-- <p class="c-lightgray fs-l pb-2">I mostly shoot</p> -->
-        <ul class="c-gray fs-m pb-6">
-          <li>Architecture</li>
-          <li>Culinary</li>
-          <li>Packshot</li>
-          <li>Portrait</li>
-        </ul>
+        <div style="position: relative">
+
+          <div class="cmp-button bg-white c-black ls-s">
+            <a href="">Explore Portfolio →</a>
+          </div>
+
+          <p class="c-lightgray fs-l pb-2">I have a taste for natural, clean and intelligible imagery that arouses
+            enthusiasm</p>
+          <!-- <p class="c-lightgray fs-l pb-2">I mostly shoot</p> -->
+          <ul class="c-gray fs-m pb-6">
+            <li>Architecture</li>
+            <li>Culinary</li>
+            <li>Packshot</li>
+            <li>Portrait</li>
+          </ul>
+        </div>
+
+
       </div>
     </section>
 
@@ -57,21 +61,33 @@
           <h4 class="c-darkgray fs-s pb-2 ls-s">B — CONTEMPORARY PHOTOGRAPHY</h4>
           <p class="c-black fs-l pb-4">I have a former artistic background, <br> mostly in Photography as a contemporary
             practice</p>
-          <a class="mb-6 link-underline ls-s" style="margin-bottom: 30vh;" href="https://unlightenment.io" target="_blank"
-            rel="noopener noreferrer">Explore artworks →</a>
+          <a class="mb-6 link-underline ls-s" style="margin-bottom: 30vh;" href="https://unlightenment.io"
+            target="_blank" rel="noopener noreferrer">Explore artworks →</a>
         </div>
       </div>
 
       <div class="bg-white">
         <div class="wrapper wrapper--tight">
-
           <div class="neg-margin mb-14">
-            <div class="cmp-carousel ">
-              <div class="cmp-carousel__cell">
-              </div>
-            </div>
-          </div>
 
+            <div class="cmp-slider wrapper--fullwidth">
+
+              <div class="carousel-art" ref="flickity_art">
+                <div class="carousel-cell">
+                  <img src="~assets/images/gisements7.jpg" alt="">
+                </div>
+                <div class="carousel-cell">
+                  <img src="~assets/images/gisements7.jpg" alt="">
+                </div>
+                <div class="carousel-cell">
+                  <img src="~assets/images/gisements7.jpg" alt="">
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
 
           <div style="position:relative">
             <h4 class="c-gray fs-s pb-2 ls-s">C — WEBSITES</h4>
@@ -83,7 +99,6 @@
               <li>Frontend</li>
               <li>Wordpress</li>
             </ul>
-
             <div class="cmp-scale-logo">
               <a href="https://studio-scale.com" target="_blank" rel="noopener noreferrer">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -136,22 +151,54 @@
     head() {
       return {
         title: 'Leo Seyers',
-
-        meta: [
-        { name: 'description', hid: 'description', content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
-        // Open Graph
-        { name: 'og:title', content: 'Leo Seyers' },
-        { name: 'og:description', 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
-        { name: 'og:type', content: 'website' },
-        { name: 'og:url', content: 'https://leoseyers.com' },
-        { name: 'og:image', content: '~assets/images/reportage.jpg' },
-        // Twitter Card
-        { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:title', content: 'Leo Seyers' },
-        { name: 'twitter:description', content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites' },
-        { name: 'twitter:image', content: '~assets/images/reportage.jpg' },
-        { name: 'twitter:image:alt', content: 'Leo Seyers Photograph' }
-      ],
+        meta: [{
+            name: 'description',
+            hid: 'description',
+            content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites'
+          },
+          // Open Graph
+          {
+            name: 'og:title',
+            content: 'Leo Seyers'
+          },
+          {
+            name: 'og:description',
+            content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites'
+          },
+          {
+            name: 'og:type',
+            content: 'website'
+          },
+          {
+            name: 'og:url',
+            content: 'https://leoseyers.com'
+          },
+          {
+            name: 'og:image',
+            content: '~assets/images/reportage.jpg'
+          },
+          // Twitter Card
+          {
+            name: 'twitter:card',
+            content: 'summary'
+          },
+          {
+            name: 'twitter:title',
+            content: 'Leo Seyers'
+          },
+          {
+            name: 'twitter:description',
+            content: 'Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites'
+          },
+          {
+            name: 'twitter:image',
+            content: '~assets/images/reportage.jpg'
+          },
+          {
+            name: 'twitter:image:alt',
+            content: 'Leo Seyers Photograph'
+          }
+        ],
 
         script: [{
           src: 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js'
@@ -169,8 +216,30 @@
       var flkty = new Flickity(this.$refs.flickity_pro, {
         prevNextButtons: false,
         pageDots: false,
-        wrapAround: true
+        wrapAround: true,
+        adaptiveHeight: true
       });
+
+
+
+      var flkty2 = new Flickity(this.$refs.flickity_art, {
+        prevNextButtons: false,
+        pageDots: false,
+        wrapAround: true,
+        adaptiveHeight: true
+      });
+
+
+      let vm = this;
+      window.onresize = function () {
+        let height = vm.$refs.flickity_pro.offsetHeight
+        document.querySelector('.cmp-slider .flickity-viewport').style.height = height + 'px'
+
+        let height2 = vm.$refs.flickity_art.offsetHeight
+        document.querySelector('.cmp-carousel .flickity-viewport').style.height = height2 + 'px'
+      }
+
+
 
     }
 
@@ -222,58 +291,51 @@
   }
 
   .neg-margin {
-    margin-top: -20vh;
+    margin-top: -15rem;
 
     @include respond(desktop) {
-      margin-top: -35vh;
+      margin-top: -20rem;
     }
   }
 
-  .cmp-slider {
+  .cmp-slider,
+  .cmp-slider2 {
     position: relative;
     width: 100%;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
 
-    @include aspect-ratio(16/9);
+    @include aspect-ratio(21/9);
 
-    @media (min-aspect-ratio: 16/9) {
-      @include aspect-ratio(21/9);
-    }
-
-    @include respond(tab-large) {
-      margin-left: -12.5%;
-      width: 125%;
-    }
 
   }
 
-  .cmp-carousel {
-    position: relative;
-    width: 100%;
+  // .cmp-carousel {
+  //   position: relative;
+  //   width: 100%;
 
-    background-color: #f7f7f7;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+  //   background-color: #f7f7f7;
+  //   margin-top: 5vh;
+  //   margin-bottom: 5vh;
 
-    @include aspect-ratio(16/9);
+  //   @include aspect-ratio(16/9);
 
-    &__cell {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+  //   &__cell {
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     width: 100%;
+  //     height: 100%;
 
-      background-image: url('~assets/images/gisements7.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-  }
+  //     background-image: url('~assets/images/gisements7.jpg');
+  //     background-size: cover;
+  //     background-position: center;
+  //   }
+  // }
 
   .cmp-button {
     position: absolute;
-    bottom: -2rem;
+    bottom: 1rem;
     right: 50%;
     transform: translateX(50%);
     transition: all .25s ease;
@@ -289,7 +351,8 @@
 
     @include respond(tab-large) {
       transform: translateX(0%);
-      bottom: -6rem;
+      bottom: inherit;
+      top: 0;
       right: 2rem;
     }
   }
@@ -322,7 +385,8 @@
     }
   }
 
-  .carousel-pro {
+  .carousel-pro,
+  .carousel-art {
     position: absolute;
     display: block;
     height: 100%;
@@ -341,9 +405,15 @@
         width: 95%;
         height: auto;
         margin: auto;
+        object-fit: cover;
         transition: opacity 0.3s, transform 0.3s, filter 0.3s;
         transform: scale(0.75);
+        will-change: transform;
       }
+    }
+
+    .flickity-viewport {
+      transition: height 0.2s;
     }
 
     .flickity-viewport.is-pointer-down {

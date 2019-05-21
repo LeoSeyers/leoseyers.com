@@ -65,15 +65,15 @@ body {
   width: 100%;
   height: auto;
   margin: auto;
-  padding: 1.5rem;
+  padding: 5%;
 
   @include respond(phone-medium) {
-    padding: 2.2rem;
+    padding: 10%;
   }
 
-  @include respond(phone-large) {
-    padding: 2.6rem;
-  }
+  // @include respond(phone-large) {
+  //   padding: 2.6rem;
+  // }
 
   @include respond(tab-large) {
     padding: 4rem 0;
@@ -92,6 +92,23 @@ body {
 
      @include respond(desktop) {
       //  max-width: 70rem;
+     }
+  }
+
+  &--fullwidth {
+
+    margin-left: -5%;
+    width: 110% !important;
+
+
+    @include respond(phone-medium) {
+      margin-left: -10%;
+      width: 120% !important;
+    }
+
+     @include respond(tab-large) {
+       margin-left: -12.5%;
+       width: 125% !important;
      }
   }
 }
