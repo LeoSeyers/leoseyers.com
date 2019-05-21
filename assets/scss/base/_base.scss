@@ -97,18 +97,20 @@ body {
 
   &--fullwidth {
 
-    margin-left: -5%;
-    width: 110% !important;
+    margin-left: -7%;
+    width: 114% !important;
+
 
 
     @include respond(phone-medium) {
-      margin-left: -10%;
-      width: 120% !important;
+      margin-left: -15%;
+      width: 130% !important;
+
     }
 
      @include respond(tab-large) {
-       margin-left: -12.5%;
-       width: 125% !important;
+       margin-left: -13%;
+       width: 126% !important;
      }
   }
 }

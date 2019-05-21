@@ -61,8 +61,8 @@
           <h4 class="c-darkgray fs-s pb-2 ls-s">B — CONTEMPORARY PHOTOGRAPHY</h4>
           <p class="c-black fs-l pb-4">I have a former artistic background, <br> mostly in Photography as a contemporary
             practice</p>
-          <a class="mb-6 link-underline ls-s" style="margin-bottom: 30vh;" href="https://unlightenment.io"
-            target="_blank" rel="noopener noreferrer">Explore artworks →</a>
+          <a class="mb-6 link-underline ls-s link-art" href="https://unlightenment.io" target="_blank"
+            rel="noopener noreferrer">Explore artworks →</a>
         </div>
       </div>
 
@@ -70,7 +70,7 @@
         <div class="wrapper wrapper--tight">
           <div class="neg-margin mb-14">
 
-            <div class="cmp-slider wrapper--fullwidth">
+            <div class="cmp-slider2 wrapper--fullwidth">
 
               <div class="carousel-art" ref="flickity_art">
                 <div class="carousel-cell">
@@ -236,7 +236,7 @@
         document.querySelector('.cmp-slider .flickity-viewport').style.height = height + 'px'
 
         let height2 = vm.$refs.flickity_art.offsetHeight
-        document.querySelector('.cmp-carousel .flickity-viewport').style.height = height2 + 'px'
+        document.querySelector('.cmp-slider2 .flickity-viewport').style.height = height2 + 'px'
       }
 
 
@@ -282,6 +282,13 @@
       position: absolute;
       right: 0;
     }
+  }
+
+  .link-art {
+    @include respond(tab-large) {
+      margin-bottom: 15rem
+    }
+
   }
 
   .link-underline {
