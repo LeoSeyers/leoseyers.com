@@ -61,14 +61,14 @@
           <h4 class="c-darkgray fs-s pb-2 ls-s">B — CONTEMPORARY PHOTOGRAPHY</h4>
           <p class="c-black fs-l pb-4">I have a former artistic background, <br> mostly in Photography as a contemporary
             practice</p>
-          <a class="mb-6 link-underline ls-s link-art" href="https://unlightenment.io" target="_blank"
+          <a class="link-underline ls-s link-art" href="https://unlightenment.io" target="_blank"
             rel="noopener noreferrer">Explore artworks →</a>
         </div>
       </div>
 
       <div class="bg-white">
         <div class="wrapper wrapper--tight">
-          <div class="neg-margin mb-14">
+          <div class="neg-margin mb-6 l-mb-10">
 
             <div class="cmp-slider2 wrapper--fullwidth">
 
@@ -284,6 +284,8 @@
   }
 
   .link-art {
+    margin-bottom: 10rem;
+
     @include respond(tab-large) {
       margin-bottom: 15rem
     }

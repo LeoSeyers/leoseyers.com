@@ -31,3 +31,9 @@
 .mb-14 {
   margin-bottom: 14rem;
 }
+
+.l-mb-10 {
+  @include respond(tab-large) {
+    margin-bottom: 12rem;
+  }
+}
