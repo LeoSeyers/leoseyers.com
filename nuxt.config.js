@@ -52,6 +52,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
     // '@nuxtjs/style-resources'
   ],
 
@@ -60,6 +61,10 @@ export default {
   //     'assets/scss/main.scss'
   //   ]
   // },
+
+  sitemap: {
+    hostname: 'https://leoseyers.com'
+  },
 
   /*
   ** Axios module configuration

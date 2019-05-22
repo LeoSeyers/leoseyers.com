@@ -36,7 +36,7 @@
         <div style="position: relative">
 
           <div class="cmp-button bg-white c-black ls-s">
-            <a href="">Explore Portfolio →</a>
+            <nuxt-link to="/pro">Explore portfolio →</nuxt-link>
           </div>
 
           <p class="c-lightgray fs-l pb-2">I have a taste for natural, clean and intelligible imagery that arouses
@@ -130,8 +130,7 @@
       <div class="wrapper">
         <h4 class="c-lightgray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
         <ul class="c-white fs-m pb-4">
-          <li><a href="https://leoseyers.com/pro" target="_blank" rel="noopener noreferrer">Commercial showcase</a></li>
-          <!-- nuxt link -->
+          <li> <nuxt-link to="/pro">Commercial showcase</nuxt-link></li>
           <li><a href="https://unlightenment.io" target="_blank" rel="noopener noreferrer">Art-based portfolio</a></li>
           <li><a href="https://studio-scale.com" target="_blank" rel="noopener noreferrer">Digital web studio</a></li>
 
