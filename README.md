@@ -1,6 +1,7 @@
 # leoseyers
 
-> Personal portfolio
+> Full-time freelancer.
+> Specialized in fine crafted images and refined websites
 
 ## Build Setup
 
