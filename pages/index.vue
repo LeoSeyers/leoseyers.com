@@ -4,7 +4,7 @@
     <section class="section--landing">
       <div class="wrapper wrapper--tight">
         <nav class="navigation">
-          <h1 class="f-serif c-darkgray fs-l">Leo Seyers</h1>
+          <h1 class="c-darkgray fs-l" style="font-family:'Crimson Text', Times New Roman, serif">Leo Seyers</h1>
         </nav>
         <h2 class="c-darkgray fs-xl">Full time freelancer.</h2>
         <h3 class="c-darkgray fs-xl">Specialized in fine crafted images <br>and refined websites</h3>
