@@ -267,13 +267,13 @@ export default {
 
       script: [
         {
-          src: "https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"
+          src: "https://unpkg.com/flickity@2.2.0/dist/flickity.pkgd.min.js"
         }
       ],
       link: [
         {
           rel: "stylesheet",
-          href: "https://unpkg.com/flickity@2/dist/flickity.min.css"
+          href: "https://unpkg.com/flickity@2.2.0/dist/flickity.min.css"
         }
       ]
     };
