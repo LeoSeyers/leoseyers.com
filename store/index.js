@@ -1,37 +1,39 @@
-// import Vuex from 'vuex'
-// import axios from 'axios'
+import Vuex from 'vuex'
+import axios from 'axios'
 
-// const createStore = () => {
-//   return new Vuex.Store({
-//     state: {
-//       images: null,
-//       clients: null,
-//       portrait: null
-//     },
+const createStore = () => {
+  return new Vuex.Store({
+    state: {
+        front: {
+            pro: [],
+            art: []
+        },
+     
+    },
 
-//     actions: {
+    actions: {
 
-//       async nuxtServerInit({
-//         dispatch
-//       }) {
-//         await dispatch('SET_API', await axios.get('https://fotoscope.studio-scale.ovh/wp-json/api/fotoscope'))
-//       },
+      async nuxtServerInit({
+        dispatch
+      }) {
+        await dispatch('FETCH_FRONT', await axios.get('https://hq.studio-scale.com/wp-json/hq/v1/front'))
+    
+      },
 
-//       SET_API: ({
-//         commit
-//       }, data) => {
-//         commit('setAPI', data.data)
-//       }
+      FETCH_FRONT: ({
+        commit
+      }, data) => {
+        commit('fetchFront', data.data)
+      }
 
-//     },
-//     mutations: {
-//       setAPI(state, data) {
-//         state.images = data.gallery
-//         state.clients = data.clients
-//         state.portrait = data.portrait
-//       },
-//     }
-//   })
-// }
+    },
+    mutations: {
+      fetchFront(state, data) {
+        state.front.pro = data.pro
+        state.front.art = data.art 
+      },
+    }
+  })
+}
 
-// export default createStore
+export default createStore
