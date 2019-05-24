@@ -8,8 +8,8 @@
             style="font-family:'Crimson Text', Times New Roman, serif"
           >Leo Seyers</h1>
         </nav>
-        <h2 class="c-darkgray fs-xl">Full time freelancer.</h2>
-        <h3 class="c-darkgray fs-xl">
+        <h2 class="c-darkergray fs-xl">Full time freelancer.</h2>
+        <h3 class="c-darkergray fs-xl">
           Specialized in fine crafted images
           <br>and refined websites
         </h3>
@@ -28,7 +28,19 @@
                 :key=" 'art' + index"
                 class="carousel-cell"
               >
-                <img :src="image.sizes.large" :alt="image.alt">
+                                <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)">
+                    <source :data-srcset="image.sizes.large">
+                    <!--[if IE 9]></video><![endif]-->
+
+                    <img
+                      :src="image.sizes.preload"
+                      :data-src="image.sizes.large"
+                      class="lazyload"
+                      :alt="image.alt"
+                    >
+                  </picture>
               </div>
             </div>
           </div>
@@ -39,12 +51,12 @@
             <nuxt-link to="/pro">Explore portfolio →</nuxt-link>
           </div>
 
-          <p class="c-lightgray fs-l pb-2">
+          <p class="c-lightergray fs-l pb-2">
             I have a taste for natural, clean and intelligible imagery that arouses
             enthusiasm
           </p>
           <!-- <p class="c-lightgray fs-l pb-2">I mostly shoot</p> -->
-          <ul class="c-gray fs-m pb-6">
+          <ul class="c-lightgray fs-m pb-6">
             <li>Architecture</li>
             <li>Culinary</li>
             <li>Packshot</li>
@@ -82,7 +94,20 @@
                   :key=" 'art' + index"
                   class="carousel-cell"
                 >
-                  <img :src="image.sizes.large" :alt="image.alt">
+                  <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)">
+                    <source :data-srcset="image.sizes.large">
+                    <!--[if IE 9]></video><![endif]-->
+
+                    <img
+                      :src="image.sizes.preload"
+                      :data-src="image.sizes.large"
+                      class="lazyload"
+                      :alt="image.alt"
+                    >
+                  </picture>
+
                 </div>
               </div>
             </div>
@@ -135,7 +160,7 @@
 
     <footer class="footer bg-darkgray">
       <div class="wrapper">
-        <h4 class="c-lightgray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
+        <h4 class="c-lightergray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
         <ul class="c-white fs-m pb-4">
           <li>
             <nuxt-link to="/pro">Commercial showcase</nuxt-link>
@@ -175,6 +200,8 @@
 </template>
 
 <script>
+
+
 export default {
   computed: {
     store_frontpage() {
@@ -253,11 +280,15 @@ export default {
   },
 
   mounted() {
+
+    const lazyInit = () => import('lazysizes');
+    lazyInit()
+
     var flkty = new Flickity(this.$refs.flickity_pro, {
       prevNextButtons: false,
       pageDots: false,
       wrapAround: true,
-      adaptiveHeight: true
+      adaptiveHeight: true,
     });
 
     var flkty2 = new Flickity(this.$refs.flickity_art, {
@@ -440,9 +471,9 @@ footer p span {
     img {
       display: block;
       width: 95%;
-      height: auto;
+      height: 100%;
       margin: auto;
-      object-fit: cover;
+      object-fit: contain;
       transition: opacity 0.3s, transform 0.3s, filter 0.3s;
       transform: scale(0.75);
       will-change: transform;
