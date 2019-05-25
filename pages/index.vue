@@ -30,8 +30,10 @@
               >
                                 <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)">
-                    <source :data-srcset="image.sizes.large">
+                    <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
+                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
+                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
+                    <source :data-srcset="image.sizes.large" type="image/jpg">
                     <!--[if IE 9]></video><![endif]-->
 
                     <img
@@ -96,8 +98,10 @@
                 >
                   <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)">
-                    <source :data-srcset="image.sizes.large">
+                    <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
+                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
+                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
+                    <source :data-srcset="image.sizes.large" type="image/jpg">
                     <!--[if IE 9]></video><![endif]-->
 
                     <img
@@ -267,13 +271,13 @@ export default {
 
       script: [
         {
-          src: "https://unpkg.com/flickity@2.2.0/dist/flickity.pkgd.min.js"
+          src: "https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"
         }
       ],
       link: [
         {
           rel: "stylesheet",
-          href: "https://unpkg.com/flickity@2.2.0/dist/flickity.min.css"
+          href: "https://unpkg.com/flickity@2/dist/flickity.min.css"
         }
       ]
     };
