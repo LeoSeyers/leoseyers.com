@@ -28,21 +28,31 @@
                 :key=" 'art' + index"
                 class="carousel-cell"
               >
-                                <picture>
-                    <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
-                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
-                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
-                    <source :data-srcset="image.sizes.large" type="image/jpg">
-                    <!--[if IE 9]></video><![endif]-->
+                <picture>
+                  <!--[if IE 9]><video style="display: none"><![endif]-->
 
-                    <img
-                      :src="image.sizes.preload"
-                      :data-src="image.sizes.large"
-                      class="lazyload"
-                      :alt="image.alt"
-                    >
-                  </picture>
+                  <source
+                    :data-srcset="image.sizes.medium  + '.webp' "
+                    media="(max-width: 720px)"
+                    type="image/webp"
+                  >
+                  <source
+                    :data-srcset="image.sizes.medium"
+                    media="(max-width: 720px)"
+                    type="image/jpg"
+                  >
+                  <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
+                  <source :data-srcset="image.sizes.large" type="image/jpg">
+                  <!--[if IE 9]></video><![endif]-->
+
+
+                  <img
+                    :src="image.sizes.preload"
+                    :data-src="image.sizes.large"
+                    class="lazyload"
+                    :alt="image.alt"
+                  >
+                </picture>
               </div>
             </div>
           </div>
@@ -98,11 +108,21 @@
                 >
                   <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
-                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
+
+                    <source
+                      :data-srcset="image.sizes.medium  + '.webp' "
+                      media="(max-width: 720px)"
+                      type="image/webp"
+                    >
+                    <source
+                      :data-srcset="image.sizes.medium"
+                      media="(max-width: 720px)"
+                      type="image/jpg"
+                    >
                     <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
                     <source :data-srcset="image.sizes.large" type="image/jpg">
                     <!--[if IE 9]></video><![endif]-->
+
 
                     <img
                       :src="image.sizes.preload"
@@ -111,7 +131,6 @@
                       :alt="image.alt"
                     >
                   </picture>
-
                 </div>
               </div>
             </div>
@@ -204,8 +223,6 @@
 </template>
 
 <script>
-
-
 export default {
   computed: {
     store_frontpage() {
@@ -218,31 +235,36 @@ export default {
       title: "Leo Seyers",
       meta: [
         {
-          name: "description",
+          property: "description",
           hid: "description",
           content:
             "Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites"
         },
         // Open Graph
         {
-          name: "og:title",
+          property: "og:title",
+          hid: "og:title",
           content: "Leo Seyers"
         },
         {
-          name: "og:description",
+          property: "og:description",
+          hid: "og:description",
           content:
             "Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites"
         },
         {
-          name: "og:type",
+          property: "og:type",
+          hid: "og:type",
           content: "website"
         },
         {
-          name: "og:url",
+          property: "og:url",
+          hid: "og:url",
           content: "https://leoseyers.com"
         },
         {
-          name: "og:image",
+          property: "og:image",
+          hid: "og:image",
           content: "~assets/images/reportage.jpg"
         },
         // Twitter Card
@@ -284,15 +306,14 @@ export default {
   },
 
   mounted() {
-
-    const lazyInit = () => import('lazysizes');
-    lazyInit()
+    const lazyInit = () => import("lazysizes");
+    lazyInit();
 
     var flkty = new Flickity(this.$refs.flickity_pro, {
       prevNextButtons: false,
       pageDots: false,
       wrapAround: true,
-      adaptiveHeight: true,
+      adaptiveHeight: true
     });
 
     var flkty2 = new Flickity(this.$refs.flickity_art, {
