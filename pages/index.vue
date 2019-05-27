@@ -265,7 +265,7 @@ export default {
         {
           property: "og:image",
           hid: "og:image",
-          content: "~assets/images/reportage.jpg"
+          content: "https://hq.studio-scale.com/wp-content/uploads/2019/05/c12-main-750x500.jpg"
         },
         // Twitter Card
         {
@@ -283,7 +283,7 @@ export default {
         },
         {
           name: "twitter:image",
-          content: "~assets/images/reportage.jpg"
+          content: "https://hq.studio-scale.com/wp-content/uploads/2019/05/c12-main-750x500.jpg"
         },
         {
           name: "twitter:image:alt",
