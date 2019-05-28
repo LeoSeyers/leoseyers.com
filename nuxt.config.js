@@ -49,11 +49,11 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
-    // '@nuxtjs/style-resources'
+    '@nuxtjs/sitemap',
+    { src: '~plugins/ga.js', ssr: false }
   ],
 
   // styleResources: {

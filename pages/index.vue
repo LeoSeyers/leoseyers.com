@@ -235,7 +235,7 @@ export default {
       title: "Leo Seyers",
       meta: [
         {
-          property: "description",
+          name: "description",
           hid: "description",
           content:
             "Leo Seyers is a full-time freelancer, specialized in fine crafted images and refined websites"
