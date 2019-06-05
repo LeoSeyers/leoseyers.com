@@ -1,55 +1,47 @@
 <template>
-    <footer>
-        <div class="wrapper">
-            <p>© 2019 – Fotoscope <span>Handcrafted by <a href="https://studio-scale.com/">Studio Scale</a></span></p>
-        </div>
-    </footer>
+  <footer class="footer bg-darkgray">
+    <div class="wrapper">
+      <h4 class="c-lightergray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
+      <ul class="c-white fs-m pb-4">
+        <li>
+          <nuxt-link to="/pro">Commercial showcase</nuxt-link>
+        </li>
+        <li>
+          <a
+            href="https://unlightenment.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Art-based portfolio</a>
+        </li>
+        <li>
+          <a
+            href="https://studio-scale.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Digital web studio</a>
+        </li>
+      </ul>
+      <p class="c-gray fs-s">
+        Copyright 2019. All rights reserved
+        <span>
+          <a
+            href="https://github.com/LeoSeyers/leoseyers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >V1.0</a>
+        </span>
+      </p>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss">
 @import "~/assets/scss/abstracts/_mixins.scss";
 
-footer {
-    background-color: #232323;
-    color: white;
-    font-weight: lighter;
-    @include font-size(s); 
-
-    .wrapper  {
-        padding: 2.5rem 1.5rem;
-        
-
-        @include respond(tab-large) {
-            padding: 3.5rem 0;
-        }
-
-        p {
-            color: #ccc;
-        }
-
-        span {
-            
-            display: block;
-            margin-top: 1rem;
-
-            @include respond(phone-medium) {
-                padding-left: 3rem;
-                margin-top: 0;                
-                display: inline-block;
-            }
-
-            @include respond(phone-large) {
-                padding-left: 4rem;
-            }
-        }
-
-        a {
-            padding-bottom: .2rem;
-            border-bottom: solid 1px grey;
-            letter-spacing: 0.05rem;
-        }
-
-        
-    }
+footer p span {
+  @include respond(tab) {
+    position: absolute;
+    right: 0;
+  }
 }
 </style>

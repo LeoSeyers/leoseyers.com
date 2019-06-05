@@ -8,7 +8,9 @@
 
 
 <style lang="scss">
-
+.f-serif {
+  font-family: "Crimson Text", sans-serif;
+} 
 
  .page-enter-active,
 .page-leave-active {

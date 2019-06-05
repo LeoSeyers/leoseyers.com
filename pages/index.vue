@@ -5,7 +5,7 @@
         <nav class="navigation">
           <h1
             class="c-darkgray fs-l"
-            style="font-family:'Crimson Text', Times New Roman, serif"
+            style="f-serif"
           >Leo Seyers</h1>
         </nav>
         <h2 class="c-darkergray fs-xl">Full time freelancer.</h2>
@@ -181,49 +181,15 @@
       </div>
     </section>
 
-    <footer class="footer bg-darkgray">
-      <div class="wrapper">
-        <h4 class="c-lightergray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
-        <ul class="c-white fs-m pb-4">
-          <li>
-            <nuxt-link to="/pro">Commercial showcase</nuxt-link>
-          </li>
-          <li>
-            <a
-              href="https://unlightenment.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Art-based portfolio</a>
-          </li>
-          <li>
-            <a
-              href="https://studio-scale.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Digital web studio</a>
-          </li>
-        </ul>
-        <p class="c-gray fs-s">
-          Copyright 2019. All rights reserved
-          <span>
-            <a
-              href="https://github.com/LeoSeyers/leoseyers.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              npm
-              install
-              vue-flickity
-              --save
-            >V1.0</a>
-          </span>
-        </p>
-      </div>
-    </footer>
+    <cmpFooter />
+   
   </main>
 </template>
 
 <script>
+import cmpFooter from "../components/Footer/index.vue"
 export default {
+  components: { cmpFooter },
   computed: {
     store_frontpage() {
       return this.$store.state.front;
@@ -338,7 +304,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~/assets/scss/abstracts/_mixins.scss";
 
 main {
@@ -365,12 +331,6 @@ li {
   margin-bottom: 0.5rem;
 }
 
-footer p span {
-  @include respond(tab) {
-    position: absolute;
-    right: 0;
-  }
-}
 
 .link-art {
   margin-bottom: 10rem;
