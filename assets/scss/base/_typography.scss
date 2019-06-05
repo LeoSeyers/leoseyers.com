@@ -2,9 +2,9 @@ body {
   font-family: "Roboto", Arial;
 }
 
-// .f-serif {
-//   font-family: "Crimson Text", sans-serif;
-// } 
+.f-serif {
+  font-family: "Crimson Text", sans-serif;
+} 
 
 .ls-s {
   letter-spacing: 0.1rem;
@@ -13,6 +13,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 h1,

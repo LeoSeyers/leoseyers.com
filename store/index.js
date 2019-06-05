@@ -1,39 +1,35 @@
-import Vuex from 'vuex'
 import axios from 'axios'
 
-const createStore = () => {
-  return new Vuex.Store({
-    state: {
-        front: {
-            pro: [],
-            art: []
-        },
-     
-    },
+export const state = () => ({
+  pro: [],
+  art: [],
+  gallery: []
+});
 
-    actions: {
+export const actions = {
+  async nuxtServerInit({ dispatch }) {
+    await dispatch(
+      "SET",
+      await axios.get("https://hq.studio-scale.com/wp-json/hq/v1/front")
+    );
+  },
+  SET({ commit }, data) {
+      commit("set", data.data);
+  }
+};
 
-      async nuxtServerInit({
-        dispatch
-      }) {
-        await dispatch('FETCH_FRONT', await axios.get('https://hq.studio-scale.com/wp-json/hq/v1/front'))
-    
-      },
+export const mutations = {
+  set(state, data) {
+    state.pro = data.pro;
+    state.art = data.art;
+  }
+};
 
-      FETCH_FRONT: ({
-        commit
-      }, data) => {
-        commit('fetchFront', data.data)
-      }
-
-    },
-    mutations: {
-      fetchFront(state, data) {
-        state.front.pro = data.pro
-        state.front.art = data.art 
-      },
-    }
-  })
-}
-
-export default createStore
+export const getters = {
+  pro(state) {
+    return state.pro;
+  },
+  art(state) {
+    return state.art;
+  }
+};

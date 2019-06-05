@@ -1,54 +1,62 @@
 <template>
   <main>
     <div class="logo">
-      <h1 class="c-white fs-m">Léo Seyers</h1>
-      <!-- <h2 class="c-white fs-s">Professional Portfolio</h2> -->
+      <h1 class="c-white fs-m">
+        <nuxt-link to="/">Léo Seyers</nuxt-link>
+      </h1>
     </div>
-    <!-- with nuxt link -->
 
     <div class="navigation-toggle" @click="toggleMenu">
       <div class="navigation-toggle__dot"></div>
     </div>
     <!-- cmp that emit a toggle event within pro store  -->
 
-    <div class="nav-wrapper">
-      <!-- toggle class will be computed and applied to nav wrapper  -->
-
-      <nav class="navigation-panel navigation-panel--inactive c-white bg-black">
-        <div class="navigation-panel__wrapper">
-          <!-- flex container  -->
-          <div>
-            <p class="fs-s pb-2">Filter</p>
-            <ul class="navigation-panel__list fs-m">
-              <li class="navigation-panel__item" data-filter="all">All</li>
-              <li class="navigation-panel__item" data-filter="all">Food</li>
-              <li class="navigation-panel__item" data-filter="all">Culinary</li>
-              <li class="navigation-panel__item" data-filter="all">Architecture</li>
-              <li class="navigation-panel__item" data-filter="all">Products</li>
-            </ul>
-          </div>
-
-          <div>
-            Contact
-            <!-- at some point I should think about this  -->
-          </div>
+    <nav class="navigation-panel c-white bg-black" :class="{ navigation_inactive : menuState }">
+      <div class="navigation-panel__wrapper">
+        <div>
+          <p class="fs-s pb-4">Filter</p>
+          <ul class="navigation-panel__list fs-m">
+            <li class="navigation-panel__item" data-filter="all">
+              <span></span>All
+            </li>
+            <li class="navigation-panel__item" data-filter="all">
+              <span></span>Food
+            </li>
+            <li class="navigation-panel__item" data-filter="all">
+              <span></span>Culinary
+            </li>
+            <li class="navigation-panel__item" data-filter="all">
+              <span></span>Architecture
+            </li>
+            <li class="navigation-panel__item" data-filter="all">
+              <span></span>Products
+            </li>
+          </ul>
         </div>
-      </nav>
 
+        <div>
+          Contact
+          <!-- at some point I should think about this  -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-wrapper" :class="{ body_inactive : menuState } ">
       <section
         class="landing"
         style="background-image:url(https://hq.studio-scale.com/wp-content/uploads/2019/05/c12-main-1500x1001.jpg)"
       >
-        <div class="landing-slide"></div>
+        <div class="landing-slide" :class="{ landing_active : onLoadState }"></div>
         <h2 class="c-white fs-xl ta-c">
           I produce visual content for apps
           <br>and digital platforms
         </h2>
       </section>
 
-      <section class="section-wrapper">
-        <div class="masonry"></div>
-        <!-- could be a masonry thing cmp with filter isotopee <3 -->
+      <section class="gallery bg-white c-darkgray">
+        <div class="wrapper masonry">
+          <p>Hello Masonry</p>
+        </div>
       </section>
 
       <!-- footer cmp -->
@@ -59,14 +67,40 @@
 
 <script>
 import cmpFooter from "../components/Footer/index.vue"
+import { mapGetters } from 'vuex'
+
 export default {
     components: {
         cmpFooter
     },
 
+     computed: {
+    gallery() {
+      return this.$store.getters.gallery;
+    },
+
+  },
+
+    data() {
+        return {
+            menuState: false,
+            onLoadState: false
+        }
+    },
+
+    mounted() {
+        window.onresize = null
+        const vm = this
+
+        setTimeout(() => {
+            vm.onLoadState = true
+        }, 200);
+        
+    },
+
     methods: {
         toggleMenu() {
-            
+            this.menuState = !this.menuState
         }
     }
 }
@@ -81,11 +115,13 @@ li {
 
 .logo {
   position: fixed;
-  top: 5%;
-  left: 5%;
+  z-index: 666;
+  top: 7vw;
+  left: 7vw;
+
   @include respond(phone-medium) {
-    top: 10%;
-    left: 10%;
+    top: 10vw;
+    left: 10vw;
   }
   @include respond(tab-large) {
     top: 4rem;
@@ -93,18 +129,23 @@ li {
   }
 }
 
+.nav-wrapper {
+  will-change: transform;
+  transition: all 0.25s ease-in-out;
+}
+
 .navigation-toggle {
   position: fixed;
   z-index: 666;
   padding: 1rem;
   cursor: pointer;
-  top: 5%;
-  right: 5%;
+  top: 7vw;
+  right: 7vw;
   transform: translateY(-20%);
 
   @include respond(phone-medium) {
-    top: 10%;
-    right: 10%;
+    top: 10vw;
+    right: 10vw;
   }
 
   @include respond(tab-large) {
@@ -121,6 +162,7 @@ li {
 }
 
 .landing {
+  position: relative;
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -128,29 +170,99 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
+  h2 {
+    z-index: 2;
+  }
+}
+
+.landing-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.2;
+  will-change: opacity;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #000;
 }
 
 .navigation-panel {
   position: fixed;
+  z-index: 665;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 25%;
+  width: 100%;
   will-change: transform;
-  transition: all .25s ease-in-out;
+  transform: translateX(100%);
+  transition: all 0.25s ease-in-out;
 
-  &--inactive {
-    transform: translateX(100%);
+  @include respond(tab-large) {
+    width: calc(25% + 4px);
   }
 
   &__wrapper {
     width: 100%;
     height: 100%;
-    padding: 4rem;
+    padding: 7vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include max-width(tab-large) {
+      padding-top: 12rem !important;
+    }
+
+    @include respond(phone-medium) {
+      padding: 10%;
+    }
+
+    @include respond(tab-large) {
+      padding: 4rem;
+    }
+  }
+
+  &__item {
+    span {
+      display: inline-block;
+      padding: 0;
+      width: 0rem;
+      height: 1px;
+      background-color: #fff;
+      transform: translateY(-0.35rem);
+      will-change: width, margin;
+      transition: all 0.35s ease-in-out;
+    }
+
+    &:hover span {
+      margin-right: 1rem;
+      width: 1.2rem;
+    }
+  }
+}
+
+.body_inactive {
+  @include respond(tab-large) {
+    transform: translateX(-25%);
+    opacity: 0.3;
+    .navigation-panel {
+      right: 2px;
+    }
+  }
+}
+
+.navigation_inactive {
+  transform: translateX(0%);
+}
+
+.landing_active {
+  opacity: 0.6;
+}
+
+.wrapper {
+  @include max-width(phone-medium) {
+    padding: 7vw;
   }
 }
 </style>

@@ -5,7 +5,7 @@
         <nav class="navigation">
           <h1
             class="c-darkgray fs-l"
-            style="f-serif"
+            style="font-family:'Crimson Text', Times New Roman, serif"
           >Leo Seyers</h1>
         </nav>
         <h2 class="c-darkergray fs-xl">Full time freelancer.</h2>
@@ -23,13 +23,10 @@
 
           <div class="cmp-slider wrapper--fullwidth">
             <div class="carousel-pro" ref="flickity_pro">
-              <div
-                v-for="(image, index) in store_frontpage.pro"
-                :key=" 'art' + index"
-                class="carousel-cell"
-              >
+              <div v-for="(image, index) in pro" :key=" 'art' + index" class="carousel-cell">
                 <picture>
                   <!--[if IE 9]><video style="display: none"><![endif]-->
+
 
                   <source
                     :data-srcset="image.sizes.medium  + '.webp' "
@@ -101,13 +98,10 @@
           <div class="neg-margin mb-6 l-mb-10">
             <div class="cmp-slider2 wrapper--fullwidth">
               <div class="carousel-art" ref="flickity_art">
-                <div
-                  v-for="(image, index) in store_frontpage.art"
-                  :key=" 'art' + index"
-                  class="carousel-cell"
-                >
+                <div v-for="(image, index) in art" :key=" 'art' + index" class="carousel-cell">
                   <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
+
 
                     <source
                       :data-srcset="image.sizes.medium  + '.webp' "
@@ -181,18 +175,23 @@
       </div>
     </section>
 
-    <cmpFooter />
-   
+    <cmpFooter/>
   </main>
 </template>
 
 <script>
 import cmpFooter from "../components/Footer/index.vue"
+import { mapGetters } from 'vuex'
+
 export default {
   components: { cmpFooter },
+  
   computed: {
-    store_frontpage() {
-      return this.$store.state.front;
+    pro() {
+      return this.$store.getters.pro;
+    },
+    art() {
+      return this.$store.getters.art;
     }
   },
 
@@ -299,6 +298,7 @@ export default {
       document.querySelector(".cmp-slider2 .flickity-viewport").style.height =
         height2 + "px";
     };
+    
   }
 };
 </script>
@@ -330,7 +330,6 @@ li {
   list-style: none;
   margin-bottom: 0.5rem;
 }
-
 
 .link-art {
   margin-bottom: 10rem;
