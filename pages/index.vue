@@ -298,7 +298,7 @@ export default {
       document.querySelector(".cmp-slider2 .flickity-viewport").style.height =
         height2 + "px";
     };
-    
+
   }
 };
 </script>

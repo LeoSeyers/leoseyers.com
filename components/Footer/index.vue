@@ -10,7 +10,7 @@
         </li>
         <li>
           <a href="https://unlightenment.io" target="_blank" rel="noopener noreferrer">
-            <span class="line"></span> Art-based portfolio
+            <span class="line"></span>Art-based portfolio
           </a>
         </li>
         <li>

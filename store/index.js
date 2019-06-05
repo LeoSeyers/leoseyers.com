@@ -22,14 +22,18 @@ export const mutations = {
   set(state, data) {
     state.pro = data.pro;
     state.art = data.art;
+    state.gallery = data.gallery;
   }
 };
 
 export const getters = {
-  pro(state) {
-    return state.pro;
-  },
-  art(state) {
-    return state.art;
-  }
-};
+         pro(state) {
+           return state.pro;
+         },
+         art(state) {
+           return state.art;
+         },
+         gallery(state) {
+           return state.gallery;
+         }
+       };

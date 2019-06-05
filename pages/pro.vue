@@ -77,7 +77,7 @@ export default {
      computed: {
     gallery() {
       return this.$store.getters.gallery;
-    },
+    },g
 
   },
 
