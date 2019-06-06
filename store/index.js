@@ -10,10 +10,7 @@ export const actions = {
   async nuxtServerInit({
     dispatch
   }) {
-    await dispatch(
-      "SET",
-      await axios.get("https://hq.studio-scale.com/wp-json/hq/v1/front")
-    );
+    await dispatch("SET", await axios.get("https://leoseyers.com/api"));
   },
   SET({
     commit

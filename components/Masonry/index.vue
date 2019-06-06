@@ -20,18 +20,22 @@ import axios from "axios";
 
 if (process.browser) {
   var Isotope = require("isotope-layout");
-   var ImagesLoaded = require("imagesloaded");
+  var ImagesLoaded = require("imagesloaded");
 }
 
-  
 export default {
 
-    data() {
-      return {
+  computed: {
+    gallery() {
+      return this.$store.getters.gallery;
+    }
+  },
+
+  data() {
+    return {
         grid: null,
         selector: ".viewer",
         masonryLoaded: false,
-        gallery: null,
         options: {
           percentPosition: true,
           itemSelector: ".item",
@@ -44,38 +48,29 @@ export default {
     },
 
     mounted() {
-         this.fetchAPI().then(this.initMasonry)
+       this.initMasonry()
     },
 
     methods: {
+      initMasonry() {
+        ImagesLoaded(this.selector, () => {
+        this.grid = new Isotope(this.selector, this.options);
+        this.masonryLoaded = true
+        });
+      },
 
-    async fetchAPI() {
-        let response = await axios.get("https://hq.studio-scale.com/wp-json/hq/v1/front");
-        this.gallery = response.data.gallery
-        
-    },
+      jointer(arr) {
+        let str;
+        if (arr.length > 0) {
+          for (var i = 0; i < arr.length; i++) {
+            str+= '' + arr[i]
+          }
+        }   
+      },
 
-    initMasonry() {
-      ImagesLoaded(this.selector, () => {
-      this.grid = new Isotope(this.selector, this.options);
-      // console.log('images loaded)')
-      this.masonryLoaded = true
-      });
-    },
-
-    jointer(arr) {
-      let str;
-      if (arr.length > 0) {
-        for (var i = 0; i < arr.length; i++) {
-          str+= '' + arr[i]
-        }
-      }   
-    },
-
-    filter(cat) {
-      console.log( '' + cat)
-      this.grid.arrange({ filter: cat });
-    }
+      filter(cat) {
+        this.grid.arrange({ filter: cat });
+      }
 
   }
  }

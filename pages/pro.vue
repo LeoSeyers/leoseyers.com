@@ -22,13 +22,16 @@
               <span></span>Food
             </li>
             <li class="navigation-panel__item" @click=" filter('.interior') ">
-              <span></span>Interiors
+              <span></span>Interior
             </li>
              <li class="navigation-panel__item" @click=" filter('.reportage') ">
               <span></span>Reportage
             </li>
             <li class="navigation-panel__item" @click=" filter('.product') ">
-              <span></span>Products
+              <span></span>Product
+            </li>
+             <li class="navigation-panel__item" @click=" filter('.portrait') ">
+              <span></span>Portrait
             </li>
           </ul>
         </div>
