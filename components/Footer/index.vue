@@ -34,13 +34,9 @@
 </template>
 
 <style lang="scss" >
-@import "~/assets/scss/abstracts/_mixins.scss";
-
 footer .version {
-  @include respond(tab) {
-    position: absolute;
-    right: 0;
-  }
+  position: absolute;
+  right: 0;
 }
 
 footer .line {
@@ -51,7 +47,7 @@ footer .line {
   background-color: #fff;
   transform: translateY(-0.35rem);
   will-change: width, margin;
-  transition: all .35s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 
 footer a:hover {

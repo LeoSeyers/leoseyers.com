@@ -219,12 +219,16 @@ li {
 .landing {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   background-position: center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include respond(tab-large) {
+    height: 85vh;
+  }
 
   h2 {
     z-index: 2;

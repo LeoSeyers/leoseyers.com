@@ -81,8 +81,7 @@ export default {
 
 .viewer {
   transition: all 0.35s ease-in-out;
-  margin-bottom: 5rem;
-
+ 
   // &--inactive {
   //   opacity: 0;
   // }
