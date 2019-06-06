@@ -3,7 +3,12 @@
     <div class="viewer" :class=" {'viewer--inactive' : !masonryLoaded }">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
-      <figure v-for="(image, index) in gallery" :key="index" class="item">
+      <figure
+        v-for="(image, index) in gallery"
+        :key="index"
+        class="item"
+        :class=" image.cat.join(' ') "
+      >
         <img :src="image.sizes.large" :alt="image.alt">
       </figure>
     </div>
@@ -14,11 +19,12 @@
 import axios from "axios";
 
 if (process.browser) {
-    var Masonry = require("masonry-layout");
+    var Isotope = require("isotope-layout");
     var ImagesLoaded = require("imagesloaded");
 }
   
 export default {
+
 
     data() {
       return {
@@ -28,16 +34,18 @@ export default {
         gallery: null,
         options: {
           percentPosition: true,
-          gutter: ".gutter-sizer",
           itemSelector: ".item",
-        //   isInitLayout: false
+          masonry: {
+            columnWidth: '.grid-sizer',
+            gutter: '.gutter-sizer'
+          },
         }
       }
     },
 
     mounted() {
-        console.log(this.$store.getters)
-    this.fetchAPI().then(this.initMasonry)
+        // console.log(this.$store.getters)
+        this.fetchAPI().then(this.initMasonry)
     },
 
     methods: {
@@ -45,33 +53,33 @@ export default {
     async fetchAPI() {
         let response = await axios.get("https://hq.studio-scale.com/wp-json/hq/v1/front");
         this.gallery = response.data.gallery
+        
     },
 
     initMasonry() {
-        ImagesLoaded(this.selector, () => {
-             this.grid = new Masonry(this.selector, this.options);
-          console.log('images loaded)')
-        //   this.grid.layout()
-          this.masonryLoaded = true
-        });
+      ImagesLoaded(this.selector, () => {
+      this.grid = new Isotope(this.selector, this.options);
+      // console.log('images loaded)')
+      this.masonryLoaded = true
+      });
     },
 
-      loaded() {
+    jointer(arr) {
+      let str;
+      if (arr.length > 0) {
+        for (var i = 0; i < arr.length; i++) {
+          str+= '' + arr[i]
+        }
+      }   
+    },
 
-        let grid = new Masonry(this.selector, this.options);
-        grid.layout()
-        // grid.on("layoutComplete", this.masonryRefresh);
-
-        ImagesLoaded(this.selector, () => {
-          console.log('images loaded)')
-          grid.layout()
-          this.masonryLoaded = true
-
-        });
-      },
-
+    filter(cat) {
+      this.grid.arrange({ filter: cat });
     }
+
   }
+ }
+
 
 </script>
 
@@ -81,7 +89,7 @@ export default {
 
 .viewer {
   transition: all 0.35s ease-in-out;
- 
+
   // &--inactive {
   //   opacity: 0;
   // }
@@ -93,8 +101,6 @@ export default {
 
   .gutter-sizer {
     width: 6%;
-
-
   }
 
   .item {

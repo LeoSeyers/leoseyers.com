@@ -15,19 +15,19 @@
         <div>
           <p class="fs-s pb-4">Filter</p>
           <ul class="navigation-panel__list fs-m">
-            <li class="navigation-panel__item" data-filter="all">
+            <li class="navigation-panel__item" @click=" filter('*') ">
               <span></span>All
             </li>
-            <li class="navigation-panel__item" data-filter="all">
+            <li class="navigation-panel__item"  @click=" filter('food') ">
               <span></span>Food
             </li>
-            <li class="navigation-panel__item" data-filter="all">
-              <span></span>Culinary
+            <li class="navigation-panel__item" @click=" filter('interior') ">
+              <span></span>Interiors
             </li>
-            <li class="navigation-panel__item" data-filter="all">
-              <span></span>Architecture
+             <li class="navigation-panel__item" @click=" filter('reportage') ">
+              <span></span>Reportage
             </li>
-            <li class="navigation-panel__item" data-filter="all">
+            <li class="navigation-panel__item" @click=" filter('product') ">
               <span></span>Products
             </li>
           </ul>
@@ -65,7 +65,7 @@
 
       <section class="gallery bg-white c-darkgray">
         <div class="wrapper">
-          <cmpMasonry/>
+          <cmpMasonry ref="isotope" />
         </div>
       </section>
 
@@ -77,7 +77,7 @@
 <script>
   import cmpFooter from "../components/Footer/index.vue"
   import cmpMasonry from "../components/Masonry/index.vue"
-
+  import Isotope from 'isotope-layout'
 
   export default {
     components: {
@@ -106,7 +106,7 @@
         this.animateLanding()
       }, 200);
 
-      // console.log(this.$store.getters.gallery)
+    
 
     },
 
@@ -122,7 +122,10 @@
            el.classList.add('inner--active')
           }, 200 * i)
         })
+      },
 
+      filter(cat) {
+        this.$refs.isotope.filter(cat);
       }
 
     }
