@@ -16,7 +16,9 @@
     "@nuxtjs/sitemap": "^1.2.0",
     "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
+    "imagesloaded": "^4.1.4",
     "lazysizes": "^5.1.0",
+    "masonry-layout": "^4.2.2",
     "nuxt": "^2.8.1"
   },
   "devDependencies": {

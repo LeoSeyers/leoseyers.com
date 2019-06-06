@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 
 export const state = () => ({
   pro: [],
@@ -7,14 +7,18 @@ export const state = () => ({
 });
 
 export const actions = {
-  async nuxtServerInit({ dispatch }) {
+  async nuxtServerInit({
+    dispatch
+  }) {
     await dispatch(
       "SET",
       await axios.get("https://hq.studio-scale.com/wp-json/hq/v1/front")
     );
   },
-  SET({ commit }, data) {
-      commit("set", data.data);
+  SET({
+    commit
+  }, data) {
+    commit("set", data.data);
   }
 };
 
@@ -27,13 +31,13 @@ export const mutations = {
 };
 
 export const getters = {
-         pro(state) {
-           return state.pro;
-         },
-         art(state) {
-           return state.art;
-         },
-         gallery(state) {
-           return state.gallery;
-         }
-       };
+  pro(state) {
+    return state.pro;
+  },
+  art(state) {
+    return state.art;
+  },
+  gallery(state) {
+    return state.gallery;
+  }
+};
