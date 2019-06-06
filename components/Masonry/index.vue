@@ -4,7 +4,7 @@
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       <figure v-for="(image, index) in gallery" :key="index" class="item">
-        <img :src="image.sizes.medium" :alt="image.alt">
+        <img :src="image.sizes.large" :alt="image.alt">
       </figure>
     </div>
   </div>
@@ -89,31 +89,13 @@ export default {
 
   .grid-sizer,
   .item {
-    @include max-width(tab-large) {
-      width: 48%;
-    }
-
-    @include respond(tab-large) {
-      width: 30%;
-    }
-
-    @include respond(desktop) {
-      width: 47%;
-    }
+    width: 47%;
   }
 
   .gutter-sizer {
-    @include max-width(tab-large) {
-      width: 4%;
-    }
+    width: 6%;
 
-    @include respond(tab-large) {
-      width: 5%;
-    }
 
-    @include respond(desktop) {
-      width: 6%;
-    }
   }
 
   .item {

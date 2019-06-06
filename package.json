@@ -19,7 +19,8 @@
     "imagesloaded": "^4.1.4",
     "lazysizes": "^5.1.0",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.8.1"
+    "nuxt": "^2.8.1",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "node-sass": "^4.12.0",
