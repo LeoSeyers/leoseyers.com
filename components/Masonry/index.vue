@@ -19,12 +19,12 @@
 import axios from "axios";
 
 if (process.browser) {
-    var Isotope = require("isotope-layout");
-    var ImagesLoaded = require("imagesloaded");
+  var Isotope = require("isotope-layout");
+   var ImagesLoaded = require("imagesloaded");
 }
+
   
 export default {
-
 
     data() {
       return {
@@ -44,8 +44,7 @@ export default {
     },
 
     mounted() {
-        // console.log(this.$store.getters)
-        this.fetchAPI().then(this.initMasonry)
+         this.fetchAPI().then(this.initMasonry)
     },
 
     methods: {
@@ -74,6 +73,7 @@ export default {
     },
 
     filter(cat) {
+      console.log( '' + cat)
       this.grid.arrange({ filter: cat });
     }
 

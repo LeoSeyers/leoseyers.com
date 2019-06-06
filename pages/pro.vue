@@ -18,16 +18,16 @@
             <li class="navigation-panel__item" @click=" filter('*') ">
               <span></span>All
             </li>
-            <li class="navigation-panel__item"  @click=" filter('food') ">
+            <li class="navigation-panel__item"  @click=" filter('.food') ">
               <span></span>Food
             </li>
-            <li class="navigation-panel__item" @click=" filter('interior') ">
+            <li class="navigation-panel__item" @click=" filter('.interior') ">
               <span></span>Interiors
             </li>
-             <li class="navigation-panel__item" @click=" filter('reportage') ">
+             <li class="navigation-panel__item" @click=" filter('.reportage') ">
               <span></span>Reportage
             </li>
-            <li class="navigation-panel__item" @click=" filter('product') ">
+            <li class="navigation-panel__item" @click=" filter('.product') ">
               <span></span>Products
             </li>
           </ul>
@@ -64,8 +64,8 @@
       </section>
 
       <section class="gallery bg-white c-darkgray">
-        <div class="wrapper">
-          <cmpMasonry ref="isotope" />
+        <div class="wrapper" id="masonry">         
+             <cmpMasonry ref="isotope" />
         </div>
       </section>
 
@@ -77,7 +77,7 @@
 <script>
   import cmpFooter from "../components/Footer/index.vue"
   import cmpMasonry from "../components/Masonry/index.vue"
-  import Isotope from 'isotope-layout'
+ 
 
   export default {
     components: {
@@ -92,7 +92,7 @@
         onLoadState: false,
         intro: [ 
           ['I ', 'produce ', 'visual content ', 'for apps '],
-          [ 'and ', 'digital platforms']
+          [ 'and ', 'digital platforms.']
         ]
       }
     },
@@ -125,7 +125,19 @@
       },
 
       filter(cat) {
-        this.$refs.isotope.filter(cat);
+        this.$refs.isotope.filter(cat)
+        this.menuState = false
+        window.scroll(0,this.findPos(document.getElementById("masonry")));
+      },
+
+      findPos(obj) {
+        var curtop = 0;
+        if (obj.offsetParent) {
+            do {
+                curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+        return [curtop];
+          }
       }
 
     }
@@ -222,7 +234,7 @@ li {
 .landing {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 65vh;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -288,6 +300,8 @@ li {
   }
 
   &__item {
+    cursor: pointer;
+
     span {
       display: inline-block;
       padding: 0;
