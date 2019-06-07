@@ -18,38 +18,65 @@
             <li class="navigation-panel__item" @click=" filter('*') ">
               <span></span>All
             </li>
-            <li class="navigation-panel__item"  @click=" filter('.food') ">
+            <li class="navigation-panel__item" @click=" filter('.food') ">
               <span></span>Food
             </li>
             <li class="navigation-panel__item" @click=" filter('.interior') ">
               <span></span>Interior
             </li>
-             <li class="navigation-panel__item" @click=" filter('.reportage') ">
+            <li class="navigation-panel__item" @click=" filter('.reportage') ">
               <span></span>Reportage
             </li>
             <li class="navigation-panel__item" @click=" filter('.product') ">
               <span></span>Product
             </li>
-             <li class="navigation-panel__item" @click=" filter('.portrait') ">
+            <li class="navigation-panel__item" @click=" filter('.portrait') ">
               <span></span>Portrait
             </li>
           </ul>
         </div>
 
         <div>
-          <p class="email-toggle" @click="emailState = !emailState">Contact <span>+</span></p>
+          <p class="email-toggle" @click="emailState = !emailState">
+            Contact
+            <span>+</span>
+          </p>
           <transition name="slide">
-            <p v-if="emailState" class="email"><a :href="encodedEmail">&#108;&#101;&#111;&#64;&#115;&#116;&#117;&#100;&#105;&#111;&#45;&#115;&#99;&#97;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
+            <p v-if="emailState" class="email">
+              <a
+                :href="encodedEmail"
+              >&#108;&#101;&#111;&#64;&#115;&#116;&#117;&#100;&#105;&#111;&#45;&#115;&#99;&#97;&#108;&#101;&#46;&#99;&#111;&#109;</a>
+            </p>
           </transition>
         </div>
       </div>
     </nav>
 
     <div class="nav-wrapper" :class="{ body_inactive : menuState } ">
-      <section
-        class="landing"
-        style="background-image:url(https://hq.studio-scale.com/wp-content/uploads/2019/05/c12-main-1500x1001.jpg)"
-      >
+      <section class="landing">
+        <div class="landing-bg">
+          <picture>
+            <!--[if IE 9]><video style="display: none"><![endif]-->
+
+            <source
+              :data-srcset="landing.sizes.medium  + '.webp' "
+              media="(max-width: 720px)"
+              type="image/webp"
+            >
+            <source :data-srcset="landing.sizes.medium" media="(max-width: 720px)" type="image/jpg">
+            <source :data-srcset="landing.sizes.large  + '.webp'" type="image/webp">
+            <source :data-srcset="landing.sizes.large" type="image/jpg">
+            <!--[if IE 9]></video><![endif]-->
+
+            <img
+              :src="landing.sizes.preload"
+              :data-src="landing.sizes.large"
+              class="lazyload"
+              :alt="landing.alt"
+            >
+          </picture>
+        </div>
+
         <div class="landing-slide" :class="{ landing_active : onLoadState }"></div>
         <h2 class="c-white fs-xl ta-c">
           <div class="line-wrapper">
@@ -69,8 +96,8 @@
       </section>
 
       <section class="gallery bg-white c-darkgray">
-        <div class="wrapper" id="masonry">         
-             <cmpMasonry ref="isotope" />
+        <div class="wrapper" id="masonry">
+          <cmpMasonry ref="isotope"/>
         </div>
       </section>
 
@@ -93,6 +120,9 @@
     computed: {
       encodedEmail() {
         return "mailto:" + encodeURIComponent("leo@studio-scale.com")
+      },
+      landing() {
+        return this.$store.getters.landing
       }
     },
 
@@ -161,9 +191,9 @@
 <style lang="scss" scoped>
 @import "~/assets/scss/abstracts/_mixins.scss";
 
-
-
-.filter, .email-toggle, .email {
+.filter,
+.email-toggle,
+.email {
   font-size: 1.8rem;
 
   @include respond(tab-large) {
@@ -171,18 +201,17 @@
   }
 }
 
- .navigation-panel__item {
+.navigation-panel__item {
   font-size: 2rem;
   @include respond(tab-large) {
     font-size: 1.5rem;
   }
 }
 
-
 .email-toggle {
   position: relative;
   padding-bottom: 1rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   border-bottom: solid 1px rgba(255, 255, 255, 0.212);
   cursor: pointer;
 
@@ -196,7 +225,7 @@
     right: 0;
     opacity: 0;
     position: absolute;
-    transition: all .25s;
+    transition: all 0.25s;
   }
 }
 
@@ -222,7 +251,7 @@
   transition: all 0.35s ease-in;
   will-change: transform, opacity;
   transform: translateY(100%) rotate(5deg);
-  opacity: .5;
+  opacity: 0.5;
 
   &--active {
     transform: translateY(0%) rotate(0deg);
@@ -301,6 +330,19 @@ li {
     z-index: 2;
     display: flex;
     flex-direction: column;
+  }
+}
+
+.landing-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

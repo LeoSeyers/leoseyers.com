@@ -9,28 +9,24 @@
         class="item"
         :class=" image.cat.join(' ') "
       >
-                         <picture>
-                    <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source
-                      :data-srcset="image.sizes.medium  + '.webp' "
-                      media="(max-width: 720px)"
-                      type="image/webp"
-                    >
-                    <source
-                      :data-srcset="image.sizes.medium"
-                      media="(max-width: 720px)"
-                      type="image/jpg"
-                    >
-                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
-                    <source :data-srcset="image.sizes.large" type="image/jpg">
-                    <!--[if IE 9]></video><![endif]-->
-                    <img
-                      :src="image.sizes.preload"
-                      :data-src="image.sizes.large"
-                      class="lazyload"
-                      :alt="image.alt"
-                    >
-                  </picture>
+        <picture>
+          <!--[if IE 9]><video style="display: none"><![endif]-->
+          <source
+            :data-srcset="image.sizes.medium  + '.webp' "
+            media="(max-width: 720px)"
+            type="image/webp"
+          >
+          <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
+          <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
+          <source :data-srcset="image.sizes.large" type="image/jpg">
+          <!--[if IE 9]></video><![endif]-->
+          <img
+            :src="image.sizes.preload"
+            :data-src="image.sizes.large"
+            class="lazyload"
+            :alt="image.alt"
+          >
+        </picture>
       </figure>
     </div>
   </div>
