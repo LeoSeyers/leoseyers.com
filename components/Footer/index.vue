@@ -1,7 +1,7 @@
 <template>
   <footer class="footer bg-darkgray">
     <div class="wrapper">
-      <h4 class="c-lightergray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
+      <h4 class="c-lightestgray fs-s pb-2 ls-s">WEBSITES NETWORK</h4>
       <ul class="c-white fs-m pb-4">
         <li>
           <nuxt-link to="/pro">
@@ -19,7 +19,7 @@
           </a>
         </li>
       </ul>
-      <p class="c-gray fs-s" style="position: relative;">
+      <p class="c-lightergray fs-s" style="position: relative;">
         Copyright 2019. All rights reserved
         <span class="version">
           <a

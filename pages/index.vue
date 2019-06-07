@@ -60,7 +60,7 @@
             <nuxt-link to="/pro">Explore portfolio →</nuxt-link>
           </div>
 
-          <p class="c-lightergray fs-l pb-2">
+          <p class="c-lightestgray fs-l pb-2">
             I have a taste for natural, clean and intelligible imagery that arouses
             enthusiasm
           </p>
