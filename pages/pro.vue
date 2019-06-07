@@ -13,7 +13,7 @@
     <nav class="navigation-panel c-white bg-black" :class="{ navigation_inactive : menuState }">
       <div class="navigation-panel__wrapper">
         <div>
-          <p class="fs-s pb-4">Filter</p>
+          <p class="pb-4 filter">Filter</p>
           <ul class="navigation-panel__list fs-m">
             <li class="navigation-panel__item" @click=" filter('*') ">
               <span></span>All
@@ -37,8 +37,10 @@
         </div>
 
         <div>
-          Contact
-          <!-- at some point I should think about this  -->
+          <p class="email-toggle" @click="emailState = !emailState">Contact <span>+</span></p>
+          <transition name="slide">
+            <p v-if="emailState" class="email"><a :href="encodedEmail">&#108;&#101;&#111;&#64;&#115;&#116;&#117;&#100;&#105;&#111;&#45;&#115;&#99;&#97;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
+          </transition>
         </div>
       </div>
     </nav>
@@ -80,19 +82,25 @@
 <script>
   import cmpFooter from "../components/Footer/index.vue"
   import cmpMasonry from "../components/Masonry/index.vue"
- 
 
   export default {
+
     components: {
       cmpFooter,
       cmpMasonry
     },
 
-    
+    computed: {
+      encodedEmail() {
+        return "mailto:" + encodeURIComponent("leo@studio-scale.com")
+      }
+    },
+
     data() {
       return {
         menuState: false,
         onLoadState: false,
+        emailState: false,
         intro: [ 
           ['I ', 'produce ', 'visual content ', 'for apps '],
           [ 'and ', 'digital platforms.']
@@ -150,6 +158,43 @@
 
 <style lang="scss" scoped>
 @import "~/assets/scss/abstracts/_mixins.scss";
+
+.filter, .email-toggle, .email {
+  font-size: 1.8rem;
+
+  @include respond(tab-large) {
+    font-size: 1.2rem;
+  }
+}
+
+ .navigation-panel__item {
+  font-size: 2rem;
+  @include respond(tab-large) {
+    font-size: 1.5rem;
+  }
+}
+
+
+.email-toggle {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: .8rem;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.212);
+  cursor: pointer;
+
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+
+  span {
+    right: 0;
+    opacity: 0;
+    position: absolute;
+    transition: all .25s;
+  }
+}
 
 .line-wrapper {
   display: flex;
@@ -304,6 +349,7 @@ li {
 
   &__item {
     cursor: pointer;
+    margin-bottom: 0.5rem;
 
     span {
       display: inline-block;

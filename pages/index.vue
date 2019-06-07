@@ -99,10 +99,9 @@
             <div class="cmp-slider2 wrapper--fullwidth">
               <div class="carousel-art" ref="flickity_art">
                 <div v-for="(image, index) in art" :key=" 'art' + index" class="carousel-cell">
+                  
                   <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
-
-
                     <source
                       :data-srcset="image.sizes.medium  + '.webp' "
                       media="(max-width: 720px)"
@@ -116,8 +115,6 @@
                     <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
                     <source :data-srcset="image.sizes.large" type="image/jpg">
                     <!--[if IE 9]></video><![endif]-->
-
-
                     <img
                       :src="image.sizes.preload"
                       :data-src="image.sizes.large"
@@ -125,6 +122,7 @@
                       :alt="image.alt"
                     >
                   </picture>
+
                 </div>
               </div>
             </div>

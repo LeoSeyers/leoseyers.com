@@ -1,5 +1,5 @@
 <template>
-  <div class="viewer">
+  <div class="viewer" :class=" { viewer_inactive : !masonryLoaded} ">
     <div class="viewer" :class=" {'viewer--inactive' : !masonryLoaded }">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
@@ -9,7 +9,28 @@
         class="item"
         :class=" image.cat.join(' ') "
       >
-        <img :src="image.sizes.large" :alt="image.alt">
+                         <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source
+                      :data-srcset="image.sizes.medium  + '.webp' "
+                      media="(max-width: 720px)"
+                      type="image/webp"
+                    >
+                    <source
+                      :data-srcset="image.sizes.medium"
+                      media="(max-width: 720px)"
+                      type="image/jpg"
+                    >
+                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
+                    <source :data-srcset="image.sizes.large" type="image/jpg">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img
+                      :src="image.sizes.preload"
+                      :data-src="image.sizes.large"
+                      class="lazyload"
+                      :alt="image.alt"
+                    >
+                  </picture>
       </figure>
     </div>
   </div>
@@ -20,7 +41,7 @@ import axios from "axios";
 
 if (process.browser) {
   var Isotope = require("isotope-layout");
-  var ImagesLoaded = require("imagesloaded");
+  // var ImagesLoaded = require("imagesloaded");
 }
 
 export default {
@@ -48,15 +69,16 @@ export default {
     },
 
     mounted() {
-       this.initMasonry()
+      const lazyInit = () => import("lazysizes");
+      lazyInit();
+      this.initMasonry()
     },
 
     methods: {
       initMasonry() {
-        ImagesLoaded(this.selector, () => {
         this.grid = new Isotope(this.selector, this.options);
         this.masonryLoaded = true
-        });
+       
       },
 
       jointer(arr) {
@@ -85,9 +107,9 @@ export default {
 .viewer {
   transition: all 0.35s ease-in-out;
 
-  // &--inactive {
-  //   opacity: 0;
-  // }
+  &_inactive {
+    opacity: 0;
+  }
 
   .grid-sizer,
   .item {
@@ -99,21 +121,23 @@ export default {
   }
 
   .item {
-    padding-bottom: 1.3rem;
+    // margin-bottom: 1.5rem;
+    margin-bottom: 6vw;
+    background-color: #ececec;
+    @include aspect-ratio(4/3);
 
     @include respond(tab-large) {
-      padding-bottom: 3rem;
+      margin-bottom: 3rem;
     }
 
     @include respond(desktop) {
-      padding-bottom: 5rem;
+      margin-bottom: 5rem;
     }
 
     img {
       display: block;
       width: 100%;
-      height: auto;
-      // opacity: 0;
+      height: 100%;
       transition: 0.35s ease-in-out;
     }
 
