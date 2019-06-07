@@ -124,6 +124,7 @@
     methods: {
       toggleMenu() {
         this.menuState = !this.menuState
+        document.querySelector('body').classList.toggle('no_scroll_mobile')
       },
 
       animateLanding() {
@@ -138,6 +139,7 @@
       filter(cat) {
         this.$refs.isotope.filter(cat)
         this.menuState = false
+        document.querySelector('body').classList.remove('no_scroll_mobile')
         window.scroll(0,this.findPos(document.getElementById("masonry")));
       },
 
@@ -158,6 +160,8 @@
 
 <style lang="scss" scoped>
 @import "~/assets/scss/abstracts/_mixins.scss";
+
+
 
 .filter, .email-toggle, .email {
   font-size: 1.8rem;

@@ -19,7 +19,7 @@
           </a>
         </li>
       </ul>
-      <p class="c-gray fs-s">
+      <p class="c-gray fs-s" style="position: relative;">
         Copyright 2019. All rights reserved
         <span class="version">
           <a

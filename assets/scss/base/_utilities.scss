@@ -1,6 +1,10 @@
-.no-scroll { /* ...or body.dialogShowing */
-  overflow: hidden;
-} 
+
+
+.no_scroll_mobile {
+  @include max-width(tab-large) {
+    overflow: hidden;
+  }
+}
 
 .clearfix::after {
   content: "";

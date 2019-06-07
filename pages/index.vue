@@ -269,6 +269,7 @@ export default {
   },
 
   mounted() {
+    
     const lazyInit = () => import("lazysizes");
     lazyInit();
 
