@@ -17,27 +17,7 @@
       <div class="wrapper wrapper--tight">
         <div class="neg-margin">
           <h4 class="c-gray fs-s ls-s">A — PROFESSIONAL PHOTOGRAPHY</h4>
-
-
-          <div class="cmp-slider wrapper--fullwidth">
-            <div class="carousel-pro" ref="flickity_pro">
-              <div v-for="(image, index) in pro" :key=" 'art' + index" class="carousel-cell">
-                <picture>
-                  <!--[if IE 9]><video style="display: none"><![endif]-->
-
-
-                  <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
-                  <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
-                  <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
-                  <source :data-srcset="image.sizes.large" type="image/jpg">
-                  <!--[if IE 9]></video><![endif]-->
-
-
-                  <img :src="image.sizes.preload" :data-src="image.sizes.large" class="lazyload" :alt="image.alt">
-                </picture>
-              </div>
-            </div>
-          </div>
+          <cmpSlider :gallery='pro'></cmpSlider>
         </div>
 
         <div style="position: relative">
@@ -78,23 +58,9 @@
       <div class="bg-white">
         <div class="wrapper wrapper--tight">
           <div class="neg-margin mb-6 l-mb-10">
-            <div class="cmp-slider2 wrapper--fullwidth">
-              <div class="carousel-art" ref="flickity_art">
-                <div v-for="(image, index) in art" :key=" 'art' + index" class="carousel-cell">
 
-                  <picture>
-                    <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source :data-srcset="image.sizes.medium  + '.webp' " media="(max-width: 720px)" type="image/webp">
-                    <source :data-srcset="image.sizes.medium" media="(max-width: 720px)" type="image/jpg">
-                    <source :data-srcset="image.sizes.large  + '.webp'" type="image/webp">
-                    <source :data-srcset="image.sizes.large" type="image/jpg">
-                    <!--[if IE 9]></video><![endif]-->
-                    <img :src="image.sizes.preload" :data-src="image.sizes.large" class="lazyload" :alt="image.alt">
-                  </picture>
+             <cmpSlider :gallery='art'></cmpSlider>
 
-                </div>
-              </div>
-            </div>
           </div>
 
           <div style="position:relative">
@@ -138,14 +104,14 @@
 </template>
 
 <script>
-
   import {
     mapGetters
   } from 'vuex'
   import generateHead from "~/plugins/head"
 
+
   let description = "Full time freelancer, specialized in fine crafted images and refined websites"
-  let title = 'Leo Seyers – Freelance photographer and web developer' 
+  let title = 'Leo Seyers – Freelance photographer and web developer'
 
 
   export default {
@@ -157,7 +123,8 @@
     },
 
     components: {
-      cmpFooter: () => import("../components/Footer/index.vue")
+      cmpFooter: () => import("../components/Footer/index.vue"),
+      cmpSlider: () => import("../components/Flickity/index.vue")
     },
 
     computed: {
@@ -169,48 +136,6 @@
       }
     },
 
-    head() {
-      return {
-          script: [{
-          src: "https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"
-        }],
-        link: [{
-          rel: "stylesheet",
-          href: "https://unpkg.com/flickity@2/dist/flickity.min.css"
-        }]
-      };
-    },
-
-    mounted() {
-      const lazyInit = () => import("lazysizes");
-      lazyInit();
-
-      var flkty = new Flickity(this.$refs.flickity_pro, {
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        adaptiveHeight: true
-      });
-
-      var flkty2 = new Flickity(this.$refs.flickity_art, {
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        adaptiveHeight: true
-      });
-
-      let vm = this;
-      window.onresize = function () {
-        let height = vm.$refs.flickity_pro.offsetHeight;
-        document.querySelector(".cmp-slider .flickity-viewport").style.height =
-          height + "px";
-
-        let height2 = vm.$refs.flickity_art.offsetHeight;
-        document.querySelector(".cmp-slider2 .flickity-viewport").style.height =
-          height2 + "px";
-      };
-
-    }
   };
 
 </script>
@@ -258,21 +183,11 @@
   }
 
   .neg-margin {
-    margin-top: -15rem; 
+    margin-top: -15rem;
 
     @include respond(desktop) {
       margin-top: -20rem;
     }
-  }
-
-  .cmp-slider,
-  .cmp-slider2 {
-    position: relative;
-    width: 100%;
-    margin-top: 4rem;
-    margin-bottom: 6rem;
-
-    @include aspect-ratio(21/9);
   }
 
 
@@ -323,45 +238,6 @@
 
       &:hover {
         color: #252525;
-      }
-    }
-  }
-
-  .carousel-pro,
-  .carousel-art {
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 100%;
-        transform: translateY(-100%);
-
-    .carousel-cell {
-      width: 66%;
-      height: 100%;
-
-      &.is-selected img {
-        transform: scale(1);
-      }
-
-      img {
-        display: block;
-        width: 95%;
-        height: 100%;
-        margin: auto;
-        object-fit: contain;
-        transition: opacity 0.3s, transform 0.3s, filter 0.3s;
-        transform: scale(0.75);
-        will-change: transform;
-      }
-    }
-
-    .flickity-viewport {
-      transition: height 0.2s;
-    }
-
-    .flickity-viewport.is-pointer-down {
-      .is-selected img {
-        transform: scale(0.9);
       }
     }
   }
