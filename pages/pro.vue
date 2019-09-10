@@ -107,13 +107,23 @@
 </template>
 
 <script>
-  import cmpFooter from "../components/Footer/index.vue"
+
   import cmpMasonry from "../components/Masonry/index.vue"
+  import generateHead from "~/plugins/head"
+
+  let description =
+    "Leo Seyers is a freelance photographer based between France and Belgium. He is specialized in food, architecture and product photography."
+  let title = 'Photographer – Leo Seyers'
 
   export default {
 
+    head() {
+      let path = this.$route.path
+      return generateHead(description, title, "https://hq.studio-scale.com/wp-content/uploads/2019/05/c12-main-750x500.jpg" , path)
+    },
+
     components: {
-      cmpFooter,
+      cmpFooter: () => import("../components/Footer/index.vue"),
       cmpMasonry
     },
 
