@@ -1,4 +1,4 @@
-import headConfig from "./plugins/head";
+import { headConfig }  from "./plugins/head";
 
 export default {
   mode: "universal",
