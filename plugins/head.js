@@ -6,7 +6,6 @@ export default (metaDescription, metaTitle, imageOG, path) => {
         hid: "description",
         content: metaDescription
       },
-      // Open Graph
       {
         property: "og:title",
         hid: "og:title",
@@ -32,7 +31,6 @@ export default (metaDescription, metaTitle, imageOG, path) => {
         hid: "og:image",
         content: imageOG
       },
-      // Twitter Card
       {
         name: "twitter:card",
         content: "summary"
@@ -59,38 +57,45 @@ export default (metaDescription, metaTitle, imageOG, path) => {
 
 
 export const headConfig = {
-  meta: [{
-      charset: "utf-8"
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1"
-    },
-    {
-      name: "msapplication-TileColor",
-      content: "#00aba9"
-    },
-    {
-      name: "theme-color",
-      content: "#ffffff"
-    }
-  ],
-  link: [{
-      rel: "apple-touch-icon",
-      sizes: "180x180",
-      href: "/apple-touch-icon.png"
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      href: "/favicon-32x32.png"
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "16x16",
-      href: "/favicon-16x16.png"
-    }
-  ]
-};
+         meta: [
+           {
+             charset: "utf-8"
+           },
+           {
+             name: "viewport",
+             content: "width=device-width, initial-scale=1"
+           },
+           {
+             name: "msapplication-TileColor",
+             content: "#00aba9"
+           },
+           {
+             name: "theme-color",
+             content: "#ffffff"
+           }
+         ],
+         link: [
+           {
+             rel: "apple-touch-icon",
+             sizes: "180x180",
+             href: "/apple-touch-icon.png"
+           },
+           {
+             rel: "icon",
+             type: "image/png",
+             sizes: "32x32",
+             href: "/favicon-32x32.png"
+           },
+           {
+             rel: "icon",
+             type: "image/png",
+             sizes: "16x16",
+             href: "/favicon-16x16.png"
+           },
+           {
+             rel: "preconnect",
+             href: "https://fonts.gstatic.com/",
+             crossorigin: 'anonymous'
+           }
+         ]
+       };
