@@ -40,6 +40,9 @@
 
     mounted() {
       const lazyInit = () => import("lazysizes");
+
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      lazySizesConfig.loadMode = 1;
       lazyInit();
 
       this.selector = this.$refs.carousel
@@ -82,9 +85,11 @@
     position: relative;
     width: 100%;
     height: 25rem;
+    cursor: move;
+    cursor: pointer;
 
     @include respond(tab-large) {
-        height: 50rem;
+      height: 50rem;
     }
 
     // @include aspect-ratio(21/9);
@@ -100,9 +105,9 @@
       width: 75%;
       height: 25rem;
 
-       @include respond(tab-large) {
+      @include respond(tab-large) {
         height: 50rem;
-    }
+      }
 
       &.is-selected img {
         transform: scale(1);
