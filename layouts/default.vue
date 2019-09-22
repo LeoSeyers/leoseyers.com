@@ -18,6 +18,11 @@
 
 
 <style lang="scss">
+
+  .page {
+    overflow-x: hidden; 
+  }
+
   .f-serif {
     font-family: "Crimson Text", sans-serif;
   }
