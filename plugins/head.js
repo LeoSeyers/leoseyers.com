@@ -1,7 +1,8 @@
 export default (metaDescription, metaTitle, imageOG, path) => {
   return {
     title: metaTitle,
-    meta: [{
+    meta: [
+      {
         name: "description",
         hid: "description",
         content: metaDescription
@@ -9,7 +10,7 @@ export default (metaDescription, metaTitle, imageOG, path) => {
       {
         property: "og:title",
         hid: "og:title",
-        content: metaDescription
+        content: metaTitle
       },
       {
         property: "og:description",
