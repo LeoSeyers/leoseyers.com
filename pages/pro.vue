@@ -19,7 +19,7 @@
               <span></span>All
             </li>
             <li class="navigation-panel__item" @click=" filter('.architecture') ">
-              <span></span>All
+              <span></span>Architecture
             </li>
             <li class="navigation-panel__item" @click=" filter('.food') ">
               <span></span>Food
