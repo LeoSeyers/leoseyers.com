@@ -18,6 +18,9 @@
             <li class="navigation-panel__item" @click=" filter('*') ">
               <span></span>All
             </li>
+            <li class="navigation-panel__item" @click=" filter('.architecture') ">
+              <span></span>All
+            </li>
             <li class="navigation-panel__item" @click=" filter('.food') ">
               <span></span>Food
             </li>
@@ -58,22 +61,24 @@
           <picture>
             <!--[if IE 9]><video style="display: none"><![endif]-->
 
+
             <source
               :data-srcset="landing.sizes.medium  + '.webp' "
               media="(max-width: 720px)"
               type="image/webp"
-            >
-            <source :data-srcset="landing.sizes.medium" media="(max-width: 720px)" type="image/jpg">
-            <source :data-srcset="landing.sizes.large  + '.webp'" type="image/webp">
-            <source :data-srcset="landing.sizes.large" type="image/jpg">
+            />
+            <source :data-srcset="landing.sizes.medium" media="(max-width: 720px)" type="image/jpg" />
+            <source :data-srcset="landing.sizes.large  + '.webp'" type="image/webp" />
+            <source :data-srcset="landing.sizes.large" type="image/jpg" />
             <!--[if IE 9]></video><![endif]-->
+
 
             <img
               :src="landing.sizes.preload"
               :data-src="landing.sizes.large"
               class="lazyload"
               :alt="landing.alt"
-            >
+            />
           </picture>
         </div>
 
@@ -97,11 +102,11 @@
 
       <section class="gallery bg-white c-darkgray">
         <div class="wrapper" id="masonry">
-          <cmpMasonry ref="isotope"/>
+          <cmpMasonry ref="isotope" />
         </div>
       </section>
 
-      <cmpFooter/>
+      <cmpFooter />
     </div>
   </main>
 </template>
