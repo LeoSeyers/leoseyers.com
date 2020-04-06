@@ -12,23 +12,23 @@
     "webpack-defaults": "webpack-defaults"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.9.0",
+    "@nuxtjs/axios": "^5.9.7",
     "@nuxtjs/pwa": "^2.6.0",
-    "@nuxtjs/sitemap": "^2.0.1",
+    "@nuxtjs/sitemap": "^2.2.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.2",
     "flickity": "^2.2.1",
     "imagesloaded": "^4.1.4",
     "isotope-layout": "^3.0.6",
     "lazysizes": "^5.2.0",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.11.0",
+    "nuxt": "^2.12.2",
     "nuxt-webfontloader": "^1.1.0",
     "splitting": "^1.0.6"
   },
   "devDependencies": {
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.2"
   }
 }
